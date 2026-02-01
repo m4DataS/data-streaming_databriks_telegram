@@ -1,0 +1,52 @@
+# variables.yml
+variables:
+  catalog_name:
+    description: "The catalog where resources are deployed"
+    default: "workspace"
+
+  schema_name:
+    description: "The schema/database name"
+    default: "telegram_qa"
+  
+  volume_name:
+    default: "raw"
+
+  telegram_token:
+    description: "Telegram Bot Token"
+    default: ""
+
+  telegram_chat_id:
+    description: "Telegram Chat ID"
+    default: ""
+
+  databricks_token:
+    description: "Databricks Personal Access Token"
+    default: "dapiXXXXXXXXXXXXXXXXXXXXXX"
+
+  databricks_model_url:
+    description: "Databricks Model Serving URL"
+    default: "https://<databricks-instance>/model-endpoint/your-model-endpoint"
+
+  pull_job_name:
+    description: "Name of the Telegram Pull Job"
+    default: "t_job-pull"
+
+  autoloader_job_name:
+    description: "Name of the Autoloader Streaming Job"
+    default: "t_job-stream-autoloader"
+  
+  llm_response_job_name:
+    description: "Name of the LLM Response Job"
+    default: "t_job-llm-answer"
+  
+  create_table_bronze_job_name:
+    description: "Name of the Create Bronze Table Job"
+    default: "create_table_bronze"
+
+  bronze_table_name:
+      description: "Name of the Bronze Table for Telegram Messages"
+      default: "bronze"
+
+  silver_table_name:
+      description: "Name of the Silver Table for Processed Telegram Messages"
+      default: "silver"
