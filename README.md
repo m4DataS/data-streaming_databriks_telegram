@@ -13,10 +13,22 @@ The goal of this project is to showcase a modern, high-resilience data engineeri
 * LLM integration : Pass messages send by telegram's channel's users to a LLM with the role of supporting them by answering their questions.
 * Infrastructure as Code (IaC): Using Databricks Asset Bundles (DABs) to ensure reproducible environments and automated deployments.
 
-## 🚀 Deployment Strategy
-To simplify the setup, this project uses Databricks Asset Bundles to run a continuous polling version of the pipeline. 
-This removes the need for external hosting (Railway) while maintaining a resilient, live connection to Telegram. (but if you want the associated codes are provided : railway app is '1-main.py' & the databricks notebook linked to it is '1-telegram_pull_finite_webhook.py')
+### Important information
+As the project is a bit big (composed of several part). Each are numeroted in the order you must follow to fully build the project. And each is supported by a .md doc to explain how the code is designed and works.
 
+## 🚀 Deployment Strategy (for the most simple version : non-cost optimized)
+
+### Important information
+As the project is a bit big (composed of several part). Each are numeroted in the order you must follow to fully build the project. And each is supported by a .md doc to explain how the code is designed and works.
+To simplify the setup, this project uses Databricks Asset Bundles to run a continuous polling version of the pipeline. 
+
+This removes the need for external hosting (Railway) while maintaining a resilient, live connection to Telegram
+
+But if you want the associated codes (due to cost issues are for other reasons) are provided : 
+ * railway app is '1-main.py' 
+ * the databricks notebook linked to it is '1-telegram_pull_finite_webhook.py'
+
+### How to build the naive (not cost optimized) version
 1. Configuration
 Insert the names and credentials related to your databricks workspace into variables.yml:
  * bot_token: Your Telegram Bot API Key.
