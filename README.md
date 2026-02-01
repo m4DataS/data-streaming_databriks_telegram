@@ -3,12 +3,14 @@ End-to-end streaming pipeline from Telegram to Databricks:
 * collects channel messages via webhook, 
 * processes them with a large language model, 
 * and stores raw data in volumes & enriched data in Delta tables. 
+
 Demonstrates PySpark, structured streaming, API integration, and failure-resilient batch processing.
 
 ## 🎯 Project Objective
 The goal of this project is to showcase a modern, high-resilience data engineering stack. It demonstrates mastery in:
 * Real-time Data Streaming: Orchestrating Structured Streaming to handle live API data.
-* Third-Party API Integration: Managing Telegram Bot API interactions and robust error handling.
+* Third-Party API Integration: Managing Telegram Bot API interactions and robust error handling. + handling cost redution by setting webhook using python endpoint (Railway)
+* LLM integration : Pass messages send by telegram's channel's users to a LLM with the role of supporting them by answering their questions.
 * Infrastructure as Code (IaC): Using Databricks Asset Bundles (DABs) to ensure reproducible environments and automated deployments.
 
 ## 🚀 Deployment Strategy
