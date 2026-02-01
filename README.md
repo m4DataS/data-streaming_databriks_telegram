@@ -38,9 +38,9 @@ Insert the names and credentials related to your databricks workspace into varia
  * Deploy the polling and processing jobs.
  ```bash
     cd ..
-    databricks bundle deploy
+    databricks bundle deploy --profile dev
  ```
- This command deploys 3 jobs: the polling script, the streaming transformation, and the LLM enrichment tasks.
+ This command deploys 3 jobs: the polling script (be careful, he is paused, but it's a continuous job, so cost can escalade pretty quickly), the streaming transformation, and the LLM enrichment tasks.
  
 ### 🏃 Operation
 1. Send a Message: Post a message to your configured Telegram channel.
