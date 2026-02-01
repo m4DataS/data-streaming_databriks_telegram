@@ -13,9 +13,6 @@ The goal of this project is to showcase a modern, high-resilience data engineeri
 * LLM integration : Pass messages send by telegram's channel's users to a LLM with the role of supporting them by answering their questions.
 * Infrastructure as Code (IaC): Using Databricks Asset Bundles (DABs) to ensure reproducible environments and automated deployments.
 
-### Important information
-As the project is a bit big (composed of several part). Each are numeroted in the order you must follow to fully build the project. And each is supported by a .md doc to explain how the code is designed and works.
-
 ## 🚀 Deployment Strategy (for the most simple version : non-cost optimized)
 
 ### Important information
