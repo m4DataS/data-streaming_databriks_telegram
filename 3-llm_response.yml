@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    t_job-llm-answer:
+      name: ${var.llm_response_job_name}
+      trigger:
+        pause_status: UNPAUSED
+        table_update:
+          table_names:
+            - ${var.catalog_name}.${var.schema_name}.${var.bronze_table_name}
+      tasks:
+        - task_key: llm_reply_to_telegram_users_messages
+          notebook_task:
+            notebook_path: /Workspace/Users/manoah4datascience@gmail.com/.bundle/${bundle.name}/${bundle.target}/files/3-llm_response
+            base_parameters:
+              telegram_token: "${var.telegram_token}"
+              telegram_chat_id: "${var.telegram_chat_id}"
+              databricks_token: "${var.databricks_token}"
+              databricks_model_url: "${var.databricks_model_url}"
+              catalog_name: "${var.catalog_name}"
+              schema_name: "${var.schema_name}"
+              volume_name: "${var.volume_name}"
+              bronze_table: "${var.bronze_table_name}"
+              silver_table: "${var.silver_table_name}"
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

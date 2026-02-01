@@ -1,0 +1,21 @@
+resources:
+  jobs:
+    t_job_pull:
+      name: ${var.pull_job_name}
+      continuous:
+        pause_status: PAUSED
+        task_retry_mode: ON_FAILURE
+      tasks:
+        - task_key: pull-messages
+          notebook_task:
+            notebook_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}/files/0-telegram_pull_finite
+            base_parameters:
+              telegram_token: "${var.telegram_token}"
+              telegram_chat_id: "${var.telegram_chat_id}"
+              catalog_name: "${var.catalog_name}"
+              schema_name: "${var.schema_name}"
+              volume_name: "${var.volume_name}"
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

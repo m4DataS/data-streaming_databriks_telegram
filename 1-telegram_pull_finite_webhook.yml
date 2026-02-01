@@ -1,0 +1,14 @@
+resources:
+  jobs:
+    telegram_qa_job_pull_webhook:
+      name: telegram_qa_job-pull-webhook
+      tasks:
+        - task_key: pull_telegram_messages_from_webhook
+          notebook_task:
+            notebook_path: /Workspace/Users/${workspace.current_user.userName}/telegram-qa-stream/telegram_pull_finite_webhook
+            base_parameters:
+              telegram_message: '""'
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

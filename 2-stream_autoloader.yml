@@ -1,0 +1,22 @@
+resources:
+  jobs:
+    t_job-stream-autoloader:
+      name: ${var.autoloader_job_name}
+      trigger:
+        pause_status: UNPAUSED
+        file_arrival:
+          url: /Volumes/${var.catalog_name}/${var.schema_name}/${var.volume_name}/data/
+          min_time_between_triggers_seconds: 0
+      tasks:
+        - task_key: autoloader_streaming
+          notebook_task:
+            notebook_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}/files/2-stream_autoloader
+            base_parameters:
+              catalog_name: "${var.catalog_name}"
+              schema_name: "${var.schema_name}"
+              volume_name: "${var.volume_name}"
+              bronze_table: "${var.bronze_table_name}"
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED

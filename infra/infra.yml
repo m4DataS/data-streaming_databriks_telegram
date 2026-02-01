@@ -1,0 +1,26 @@
+---
+
+resources:
+  volumes:
+    raw_volume:
+      catalog_name: ${var.catalog_name}
+      schema_name: ${var.schema_name}
+      name: ${var.volume_name}
+      volume_type: MANAGED
+      comment: "DLT Volume for storing raw data from telegram"
+
+  jobs:
+    create_table_bronze:
+      name: ${var.create_table_bronze_job_name}
+      tasks:
+        - task_key: create-bronze-table
+          notebook_task:
+            notebook_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}/files/create_table_bronze
+            base_parameters:
+              catalog_name: "${var.catalog_name}"
+              schema_name: "${var.schema_name}"
+              bronze_table: "${var.bronze_table_name}"
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
